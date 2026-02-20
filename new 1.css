@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Макет страницы</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(120deg, #e0c3fc, #8ec5fc, #f6d365);
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: #5a189a;
+    }
+
+    a:visited {
+      color: #5a189a;
+    }
+
+    a:hover {
+      color: #240046;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -70px;
+    }
+
+    min-width: 780px {
+      .container {
+        width: 760px;
+      }
+    }
+
+    min-width: 992px {
+      .container {
+        width: 970px;
+      }
+    }
+
+    min-width: 767px {
+      .container {
+        width: 1170px;
+      }
+    }
+
+    .flat-page header {
+      min-height: 80px;
+      display: flex;
+    }
+
+    max-width: 767px {
+      .flat-page header {
+        min-height: auto;
+        display: initial;
+      }
+    }
+
+    .flat-page header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    max-width: 767px {
+      .flat-page header .container {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .flat-page header .links {
+      display: flex;
+      align-items: center;
+    }
+
+    max-width: 900px {
+      .flat-page header .links {
+        text-align: center;
+        gap: 20px;
+      }
+    }
+
+    .flat-page header .links li {
+      margin-left: 10px;
+      color: #2b2d42;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    max-width: 900px {
+      .flat-page header .links li {
+        margin-left: auto;
+      }
+    }
+
+    .flat-page header .links li:last-child {
+      border-radius: 20px;
+      padding: 10px 20px;
+      color: #FFF;
+      background-color: #4361ee;
+    }
+
+    .flat-page .content .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 140px;
+      min-height: calc(100vh - 80px);
+    }
+
+    max-width: 767px {
+      .flat-page .content .container {
+        gap: 0;
+        min-height: calc(100vh - 101px);
+        justify-content: center;
+        flex-direction: column-reverse;
+      }
+    }
+
+    max-width: 767px {
+      .flat-page .content .info {
+        text-align: center;
+        margin-bottom: 15px 
+      }
+    }
+
+    .flat-page .content .info h1 {
+      color: #2b2d42;
+      font-size: 38px;
+    }
+
+    .flat-page .content .info p {
+      margin: 0;
+      line-height: 1.6;
+      font-size: 15px;
+      color: #4a4a4a;
+    }
+
+    .flat-page .content .info button {
+      border: 0;
+      border-radius: 20px;
+      padding: 12px 30px;
+      margin-top: 30px;
+      cursor: pointer;
+      color: #FFF;
+      background-color: #4cc9f0;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .flat-page .content .image img {
+      max-width: 120%;
+      margin-top: 50px;
+    }
+
+    nav {
+      margin: 0 auto;
+      margin-top: 3em;
+      /* Убрана фиксированная ширина */
+      padding: 0 20px; /* Добавлены отступы для боковых границ */
+      max-width: 100%; /* Максимальная ширина теперь 100% */
+    }
+
+    nav ul {
+      text-align: left;
+      display: inline;
+      margin: 0;
+      padding: 1em 1em 1em 0;
+      list-style: none;
+      /* Для адаптивности используем flexbox */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: .01em;
+      position: relative;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -ms-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s;      border-radius: 30px 30px 30px 30px;
+      padding: 1em 2em;
+      background: #6c63ff; 
+      line-height: 0.8;
+      box-shadow: 0px 4px 8px lightgreen;
+      width: 10em;
+      text-align: center; /* Центрируем текст внутри элементов меню */
+    }
+
+    nav li a {
+      padding-bottom: 1em;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 21px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Roboto', sans-serif;
+      color: white; 
+      display: block; /* Сделаем ссылку блочной для лучшего заполнения области */
+    }
+
+    nav ul li:hover {
+      background: #3a35a0;
+    }
+
+    nav ul li ul {
+      padding: 0;
+      position: absolute;
+      top: 3.5em;
+      left: 0;
+      width: 16em;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transiton: opacity 0.2s;
+      -moz-transition: opacity 0.2s;
+      -ms-transition: opacity 0.2s;
+      -o-transition: opacity 0.2s;
+      -transition: opacity 0.2s;
+    }
+
+    nav ul li ul li { 
+      background-color: #4a45c1;
+      display: block; 
+      color: #ffffff;
+      text-shadow: 0 1px 0 #000;       top: -0.5em;
+    }
+
+    nav ul li ul li:hover { 
+      background-color: #2a2682;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #wrapper {
+      margin: 0 auto;
+      width: 100%; 
+      text-align: center; 
+    }
+
+    /* Адаптивность для меню на мобильных устройствах */
+    max-width: 767px {
+      nav ul {
+        flex-direction: column; /* Элементы меню располагаются вертикально */
+        align-items: center;
+      }
+
+      nav ul li {
+        width: 100%; /* На мобильных устройствах элементы меню занимают всю ширину */
+        max-width: 200px; /* Ограничиваем максимальную ширину */
+        margin-bottom: 5px; /* Отступ между элементами */
+      }
+
+      nav ul li ul {
+        position: static; /* Подменю становится статичным */
+        display: none; /* По умолчанию скрыто */
+        opacity: 1; /* Убираем прозрачность */
+        visibility: visible; /* Делаем видимым при отображении */
+        width: 100%; /* Занимает всю ширину родителя */
+        margin-top: 5px; /* Отступ сверху */
+      }
+
+      nav ul li:hover ul {
+        display: block; /* Отображаем подменю при наведении */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flat-page">
+    <header>      <div class="container">
+        <h1>Логотип</h1>
+        <ul class="links">
+          <li>Главная</li>
+          <li>О нас</li>
+          <li>Услуги</li>
+          <li>Контакты</li>
+          <li>Регистрация</li>
+        </ul>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">Продукты</a>
+          <ul>
+            <li><a href="#">Товар 1</a></li>
+            <li><a href="#">Товар 2</a></li>
+            <li><a href="#">Товар 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Услуги</a>
+          <ul>
+            <li><a href="#">Услуга 1</a></li>
+            <li><a href="#">Услуга 2</a></li>
+            <li><a href="#">Услуга 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <section class="content">
+      <div class="container">
+        <div class="info">
+          <h1>Заголовок страницы</h1>
+          <p>Это лидер-абзац — краткое описание содержания страницы. Здесь можно разместить основную информацию, которая заинтересует пользователя и подскажет, что он найдет на этой странице.</p>
+          <button>Нажми меня</button>
+        </div>
+        <div class="image">
+          <img src="https://via.placeholder.com/400x300" alt="Иллюстрация">
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
