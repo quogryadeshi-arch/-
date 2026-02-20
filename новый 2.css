@@ -1,0 +1,72 @@
+/* новы́й 1.css — адаптирован под изображения: 5 плашек + заголовок serif */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #d0e4f9; /* светло-голубой фон */
+  color: #2b2d42;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Блок с 5 плашками */
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.menu-item {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #7a5cff; /* фиолетовый */
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 0 12px rgba(144, 238, 144, 0.7); /* зелёная тень (glow) */
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  background: #5a3cff;
+  transform: translateY(-2px);
+}
+
+/* Заголовок — как на фото */
+.welcome-title {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2b2d42;
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+.welcome-title span {
+  display: block;
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+/* Скрываем старую структуру, если она осталась в HTML */
+.flat-page header,
+.flat-page .content .info,
+.flat-page .image,
+.flat-page nav {
+  display: none;
+}
